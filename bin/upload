@@ -1,0 +1,11 @@
+major=`cat version | cut -d '.' -f 1`
+minor=`cat version | cut -d '.' -f 2`
+minorPlus=$(($minor + 1))
+newVersion="$major.$minorPlus"
+echo $newVersion > version
+echo $newVersion > ./templates/version.html.twig
+git add .
+echo $1
+git commit -m "$1"
+git tag $newVersion
+git push origin master $newVersion

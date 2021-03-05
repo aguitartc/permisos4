@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+    <br><br>
+    <div class="text-center">
+        Homepage<br/>
+        Versió {% include 'version.html.twig' %}
+    </div>
+    <br>
+
+    {% include 'footer.html.twig' %}
+{% endblock %}

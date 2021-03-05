@@ -1,0 +1,5 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: [ 'bootstrap_4_horizontal_layout.html.twig' ]
+    globals:
+        application: 'Nom aplicació (fitxer config/packages/twig.yaml)'

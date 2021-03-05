@@ -1,4 +1,5 @@
-
+/config/parameters.yaml
+/app/config/parameters.yml
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php

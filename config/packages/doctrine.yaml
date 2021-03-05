@@ -1,0 +1,46 @@
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                host: '%app_database_host%'
+                port: '%app_database_port%'
+                dbname: '%app_database_name%'
+                user: '%app_database_user%'
+                password: '%app_database_password%'
+                driver: 'pdo_mysql'
+                server_version: 'mariadb-10.4.12'
+                # Only needed for MySQL (ignored otherwise)
+                charset: utf8mb4
+                default_table_options:
+                    collate: utf8mb4_general_ci
+            prisma:
+                driver: oci8
+                url: '%database_url_prisma%'
+                charset: AL32UTF8
+    orm:
+        auto_generate_proxy_classes: true
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+                auto_mapping: true
+                mappings:
+                    App:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity'
+                        prefix: 'App\Entity'
+                        alias: App
+                dql:
+                    datetime_functions:
+                        DAY: DoctrineExtensions\Query\Mysql\Day
+                        MONTH: DoctrineExtensions\Query\Mysql\Month
+                        YEAR: DoctrineExtensions\Query\Mysql\Year
+                    string_functions:
+                        regexp: DoctrineExtensions\Query\Mysql\Regexp
+            prisma:
+                connection: prisma
+                mappings:
+                    UpcPrismaBundle: ~
