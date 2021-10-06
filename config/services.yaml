@@ -38,10 +38,6 @@ services:
         class: App\Security\CasJasigAuthenticator
         arguments: [ '%cas_host%', '%cas_port%', '%cas_context%', '%cas_ca_chain%' ]
 
-    logout_cas_upc:
-        class: App\Utils\LogoutCasUpc
-        arguments: [ '%cas_host%', '%cas_port%', '%cas_context%', '%cas_ca_chain%' ]
-
     app.user_provider:
         class: App\Security\UserProvider
         arguments: [ "@=service('doctrine.orm.entity_manager').getRepository('App:User')" ]
@@ -51,3 +47,9 @@ services:
         arguments: [ '@router', '%app_locales%', '%locale%' ]
         tags:
             - { name: kernel.event_listener, event: kernel.exception , method: onKernelRequest }
+
+    App\EventListener\LogoutUpcListener:
+        tags:
+            - name: 'kernel.event_listener'
+              event: 'Symfony\Component\Security\Http\Event\LogoutEvent'
+              dispatcher: security.event_dispatcher.main

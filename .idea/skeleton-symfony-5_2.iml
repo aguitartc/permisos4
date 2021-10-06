@@ -92,6 +92,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/rate-limiter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/password-hasher" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

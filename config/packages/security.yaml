@@ -12,13 +12,10 @@ security:
             security: false
             context: context
         main:
-            #anonymous: true
             pattern: ^/
             context: context
             logout:
                 path: security_logout
-                target: homepage
-                success_handler: logout_cas_upc
             guard:
                 provider: casUser
                 authenticators:
